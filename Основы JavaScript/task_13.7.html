@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = +prompt("Введите число: ", 2);
+        let res = "";
+        for (let i = 2; i <= n; i++) {
+            let is_break = false;
+            for (let j = 2; j <= i ** 0.5; j++) {
+                if (i % j == 0) {
+                    is_break = true;
+                    break;
+                }
+            }
+            if (!is_break)
+                res += `${i} `;
+        }
+        alert(res);
+    </script>
+</body>
+</html>

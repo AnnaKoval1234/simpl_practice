@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkNumber(x) {
+            return x >= 1 && x % 1 == 0;
+        }
+        function pow(x, n) {
+            return x ** n;
+        }
+        let x = prompt("Введите x", 1);
+        let n = prompt("Введите n", 1);
+        if (!checkNumber(x) || !checkNumber(n)) {
+            alert("Отмена");
+        }
+        else {
+            alert(pow(x, n));
+        }
+    </script>
+</body>
+</html>
