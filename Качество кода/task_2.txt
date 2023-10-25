@@ -1,0 +1,20 @@
+Какие недостатки вы видите в стиле написания кода этого примера?
+
+function pow(x,n) // pow(x, n)
+{
+  let result=1; // let result = 1;
+  for(let i=0;i<n;i++) {result*=x;} // for (let i = 0; i < n; i++) {
+                                    //   result *= x;
+                                    // }
+  return result;
+}
+
+let x=prompt("x?",''), n=prompt("n?",'') // let x = prompt("x?", ''), n = prompt("n?", '')
+if (n<=0) // if (n <= 0) // скобки можно убрать
+{
+  alert(`Степень ${n} не поддерживается, введите целую степень, большую 0`);
+}
+else
+{
+  alert(pow(x,n)) // alert( pow(x, n) );
+}
