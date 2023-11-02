@@ -1,0 +1,26 @@
+1) Что выведет следующий код?
+
+    let fruits = ["Яблоки", "Груша", "Апельсин"];
+
+    // добавляем новое значение в "копию"
+    let shoppingCart = fruits;
+    shoppingCart.push("Банан");
+
+    // что в fruits?
+    alert( fruits.length ); // ?
+
+Ответ: 4
+
+3) Каков результат? Почему?
+
+    let arr = ["a", "b"];
+
+    arr.push(function() {
+    alert( this );
+    });
+
+    arr[2](); // ?
+
+Ответ: function() {
+    alert( this );
+    } -- неправильно: a, b, function() { alert( this ); }  
