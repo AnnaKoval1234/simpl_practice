@@ -1,3 +1,5 @@
+// потом разобрать
+
 function debounce(func, ms) {
     let timeout;
     return function() {
