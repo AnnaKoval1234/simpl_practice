@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Напишите функцию showNotification(options), которая создаёт уведомление: <div class="notification"> 
+с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5 секунды. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function showNotification({top = 0, right = 0, className, html}) {
+        let div = document.createElement('div');
+        
+        div.className = "notification";
+        div.classList.add(className);
+        
+        div.style.top = top + 'px';
+        div.style.right = right + 'px';
+        
+        div.innerHTML = html;
+        document.body.append(div);
+
+        setTimeout(() => div.remove(), 1500);
+    }
+
+    // test it
+    let i = 1;
+    setInterval(() => {
+        // показывает элемент с текстом "Hello" рядом с правой верхней частью окна.
+        showNotification({
+            top: 10, // 10px от верхней границы окна (по умолчанию 0px)
+            right: 10, // 10px от правого края окна (по умолчанию 0px)
+            html: "Hello!" + i++, // HTML-уведомление
+            className: "welcome" // дополнительный класс для div (необязательно)
+        });
+    }, 2000);
+    </script>
+</body>
+</html>
