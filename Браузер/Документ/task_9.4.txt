@@ -1,0 +1,7 @@
+В чём отличие между getComputedStyle(elem).width и elem.clientWidth?
+Укажите хотя бы 3 отличия, лучше – больше.
+
+Ответ:
+1) getComputedStyle(elem).width может выдать auto, elem.clientWidth же всегда выдает размер в пикселях
+2) etComputedStyle(elem).width не учитывает padding
+3) elem.clientWidth учитывает полосу прокрутки, getComputedStyle(elem).width - нет

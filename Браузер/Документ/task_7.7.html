@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createCalendar(elem, year, month) {
+            let table = "<table>" +
+                "<tr><th>пн</th>" +
+                    "<th>вт</th>" +
+                    "<th>ср</th>" +
+                    "<th>чт</th>" +
+                    "<th>пт</th>" +
+                    "<th>сб</th>" +
+                    "<th>вс</th></tr>" +
+                "<tr>";
+
+            let date = new Date(year, month, 1);
+            let last_date = new Date(year, month + 1, 1);
+
+            let day_of_week = date.getDay() ? date.getDay() : 7;
+            for (let i = 1; i < day_of_week; i++)
+                table += "<td></td>"
+
+            do {
+                table += `<td>${date.getDate()}</td>`
+                if (date.getDay() == 0) {
+                    table += "</tr><tr>";
+                }
+                date.setDate(date.getDate() + 1);
+            } while (date.getDate() != last_date.getDate())
+            
+            if (date.getDay() != 0) {
+                for (let i = date.getDay(); i <= 7; i++)
+                table += "<td></td>"
+            }
+            table += "</tr></table>";
+            elem.innerHTML = table;
+        }
+        createCalendar(document.body, 2012, 9);
+    </script>
+</body>
+</html>

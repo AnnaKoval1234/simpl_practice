@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<!-- Создайте цветные часы -->
+<html>
+<head>
+  <style>
+    span[id="hh"] {
+      color: red;
+    }
+    span[id="mm"] {
+      color: green;
+    }
+    span[id="ss"] {
+      color: blue;
+    }
+  </style>  
+</head>
+<body>
+  <div>
+    <span id="hh">hh</span>:<span id="mm">mm</span>:<span id="ss">ss</span>
+  </div>
+  <script>
+    let hours = document.getElementById("hh");
+    let min = document.getElementById("mm");
+    let sec = document.getElementById("ss");
+
+    let start_button = document.getElementById("start_button");
+    let stop_button = document.getElementById("stop_button");
+    let interval_data = [];
+
+    function change_time() {
+      let current_time = new Date();
+
+      let hh = current_time.getHours();
+      if (hh < 10) hh = '0' + hh;
+      hours.firstChild.textContent = hh;
+    
+      let mm = current_time.getMinutes();
+      if (mm < 10) mm = '0' + mm;
+      min.firstChild.textContent = mm;
+  
+      let ss = current_time.getSeconds();
+      if (ss < 10) ss = '0' + ss;
+      sec.firstChild.textContent = ss;
+    }
+
+    function clockStart() {
+      change_time();
+      interval_data.push(setInterval(change_time, 1000));
+    }
+
+    function clockStop() {
+      for (let interval_id of interval_data) {
+        clearInterval(interval_id);
+      }
+    }
+
+  </script>
+  <!-- клик по этой кнопке вызовет clockStart() -->
+  <input id="start_button" type="button" onclick="clockStart()" value="Старт">
+
+  <!-- клик по этой кнопке вызовет clockStop() -->
+  <input id="stop_button" type="button" onclick="clockStop()" value="Стоп">
+
+
+</body>
+</html>
