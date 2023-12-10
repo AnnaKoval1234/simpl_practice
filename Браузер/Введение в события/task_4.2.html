@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #contents {
+      padding: 5px;
+      border: 1px green solid;
+    }
+  </style>
+</head>
+
+<body>
+
+  <fieldset id="contents" onclick="return handler(event)">
+    <legend>#contents</legend>
+    <p>
+      Как насчёт того, чтобы прочитать <a href="https://wikipedia.org">Википедию</a> или посетить <a href="https://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?
+    </p>
+  </fieldset>
+
+  <script>
+    function handler(event) {
+        if (event.target.tagName == "A" || event.target.closest('a')) {
+            let answer = confirm("Покинуть страницу?");
+            return answer;
+        }
+    }
+    
+  </script>
+</body>
+</html>

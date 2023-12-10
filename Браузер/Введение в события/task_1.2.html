@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+    <!-- Добавьте JavaScript к кнопке button, чтобы при нажатии элемент <div id="text"> исчезал. -->
+    <input type="button" id="hider" value="Нажмите, чтобы спрятать" onclick="hide()"/>
+
+    <script>
+        function hide() {
+            let button = document.getElementById("hider");
+            button.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
