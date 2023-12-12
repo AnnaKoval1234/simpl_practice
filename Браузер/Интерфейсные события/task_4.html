@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Создайте функцию runOnKeys(func, code1, code2, ... code_n), которая запускает func при одновременном нажатии клавиш с кодами code1, code2, …, code_n. -->
+    <script>
+        function runOnKeys(func, ...codes) {
+            let pressed = new Set();
+
+            document.onkeydown = function(event) {
+                pressed.add(event.code);
+
+                let check = false;
+                for (let code of codes) 
+                    check = pressed.has(code);
+                if (check) 
+                    func();
+
+            }
+            
+            document.onkeyup = function (event) {
+                pressed.clear()
+            }
+        }
+
+        runOnKeys(
+            () => alert("Привет!"),
+            "KeyQ",
+            "KeyW"
+        );
+    </script>
+</body>
+</html>

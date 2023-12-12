@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #matrix {
+      width: 400px;
+      margin: auto;
+      overflow: auto;
+      text-align: justify;
+    }
+
+    #arrowTop {
+      height: 9px;
+      width: 14px;
+      color: green;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      cursor: pointer;
+    }
+
+    #arrowTop::before {
+      content: '▲';
+    }
+
+  </style>
+  <meta charset="utf-8">
+</head>
+
+<body>
+    <!-- Создайте кнопку «наверх», чтобы помочь с прокруткой страницы.
+
+    Она должна работать следующим образом:
+    
+    Пока страница не прокручена вниз хотя бы на высоту окна – кнопка невидима.
+    Когда страница прокручена вниз больше, чем на высоту окна – появляется стрелка «наверх» в левом верхнем углу. Если страница прокручивается назад, стрелка исчезает.
+    Когда нажимается стрелка, страница прокручивается вверх. -->
+
+  <div id="matrix">
+    <script>
+      for (let i = 0; i < 2000; i++) document.writeln(i)
+    </script>
+  </div>
+
+  <div id="arrowTop"></div>
+
+  <script>
+    let arrowTop = document.getElementById('arrowTop');
+    arrowTop.hidden = true;
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset >= document.documentElement.clientHeight) {
+            arrowTop.hidden = false;
+        }
+        else {
+            arrowTop.hidden = true;
+        }
+    });
+
+    arrowTop.addEventListener('click', function() {
+        window.scrollTo(0, 0);
+    });
+  </script>
+
+</body>
+</html>
