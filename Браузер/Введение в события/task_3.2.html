@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <ul class="tree" id="tree">
+    <li>Животные
+      <ul>
+        <li>Млекопитающие
+          <ul>
+            <li>Коровы</li>
+            <li>Ослы</li>
+            <li>Собаки</li>
+            <li>Тигры</li>
+          </ul>
+        </li>
+        <li>Другие
+          <ul>
+            <li>Змеи</li>
+            <li>Птицы</li>
+            <li>Ящерицы</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Рыбы
+      <ul>
+        <li>Аквариумные
+          <ul>
+            <li>Гуппи</li>
+            <li>Скалярии</li>
+          </ul>
+        </li>
+        <li>Морские
+          <ul>
+            <li>Морская форель</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>     
+    let lis = document.querySelectorAll('li');
+    for (let li of lis) {
+        li.style.cursor = "pointer";
+        let content = li.firstChild.textContent;
+        li.firstChild.textContent = '';
+        li.insertAdjacentHTML('afterbegin', `<span>${content}</span>`);
+    }
+    tree.addEventListener('click', (event) => {
+        if (event.target.tagName !== 'SPAN') return;
+        let ul = event.target.closest('li').lastElementChild;
+        if (ul.tagName === 'UL') {
+            ul.hidden = !ul.hidden;
+        }
+    })
+  </script>
+</body>
+</html>

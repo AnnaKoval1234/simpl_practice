@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ul {
+            display: none;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Создать меню, которое по нажатию открывается либо закрывается -->
+    <div id="triangle">▶ Сладости (нажми меня)!</div>
+    
+    <ul>
+      <li>Пирожное</li>
+      <li>Пончик</li>
+      <li>Мёд</li>
+    </ul>
+    <script>
+
+    function change() {
+        let triangle = document.getElementById('triangle');
+        let ul = document.querySelector("ul");
+    
+        if (triangle.textContent == '▶ Сладости (нажми меня)!') {
+            triangle.textContent = '▼ Сладости (нажми меня)!';
+            ul.style.display = 'block';
+        } else {
+            triangle.textContent = '▶ Сладости (нажми меня)!';
+            ul.style.display = 'none';
+        }
+    }
+
+    triangle.addEventListener('click', change);
+
+    </script>
+</body>
+</html>
