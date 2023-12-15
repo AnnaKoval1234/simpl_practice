@@ -1,8 +1,10 @@
 let dr = document.forms.dr;
+let date = document.querySelector("input#date");
+
 dr.addEventListener('click', getSchedule);
 
 function getSchedule(event) {
-    if (event.target.tagName == 'INPUT') {
+    if (event.target.tagName == 'INPUT' && date.value) {
         let db = database.result;
         let readTransaction = db.transaction('doctors', 'readonly');
         doctors = readTransaction.objectStore("doctors");
@@ -19,9 +21,15 @@ function getSchedule(event) {
                 
                 let start = doctor.timeStart;
                 let end = doctor.timeEnd;
-                for (let time = start; time <= end; time += 30) {
+                let set = doctor.dateset;
+                for (let time = start; time <= end; time += 10) {
                     let button = document.createElement('button');
                     button.textContent = formatTime(time);
+
+                    let appointment = new Date( Date.parse(`${date.value}T${button.textContent}:00.000`) );
+                    if (set.has(appointment)) {
+                        button.disabled = true;
+                    }
     
                     let div_button = document.createElement('div');
                     div_button.id = 'div_button';
