@@ -7,23 +7,28 @@
     <title>Запись к врачу</title>
 </head>
 <body>
+    <script defer src="database.js"></script>
+    <script defer src="schedule.js"></script>
+    <script defer src="doctors.js"></script>
     <header>Запись к врачу</header>
-    <section>Расписание специалистов</section>
+    <section>
+        Расписание специалистов
+        <form name="sched">
+        </form>
+    </section>
     <aside>
         Дата записи
         <div>
-            <br>
             <input type="date">
         </div>
         <div>
             Специалисты
-            <form>
+            <form name="dr">
             </form>
         </div>
     </aside>
     <footer>2023</footer>
     
-    <script src="database.js"></script>
 
 </body>
 </html>
